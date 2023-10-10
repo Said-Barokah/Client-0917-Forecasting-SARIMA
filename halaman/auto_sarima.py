@@ -20,7 +20,8 @@ def app():
     st.subheader('Auto Sarima')
     seasonal = st.number_input('Masukkan nilai variabel musiman (s):',min_value=0,value=model_data[3])
     if(st.button('cek model dengan auto sarima')):
-        sarima_model=auto_arima(df_train, seasonal=True, trace=True,m=seasonal,error_action='warn', suppress_warnings=True, random_state = 20, n_fits=30)
+        with st.spinner('Wait for it...'):
+            sarima_model=auto_arima(df_train, seasonal=True, trace=True,m=seasonal,error_action='warn', suppress_warnings=True, random_state = 20, n_fits=30)
         result = sarima_model.summary()
         # result_csv = result.as_csv()
         # with open('data/auto_model_results.csv', 'w') as f:
