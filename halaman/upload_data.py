@@ -34,12 +34,12 @@ def app():
               st.error('Resample tolak, coba frequency yang lebih tinggi dari data asli')
               df_resample = datamaster
               st.write(df_resample)
-              st.write(f'Jumlah missing value {int(df_resample.isna().sum())}')
+              # st.write(f'Jumlah missing value {int(df_resample.isna().sum())}')
               st.line_chart(df_resample)
               df_resample.to_csv('data/data_resample.csv')
          else:
               st.write(df_resample)
-              st.write(f'Jumlah missing value {int(df_resample.isna().sum())}')
+              # st.write(f'Jumlah missing value {int(df_resample.isna().sum())}')
               st.line_chart(df_resample)
               if(type_df != 'Pilih Salah Satu jika anda ingin resample data'):
                 st.success('Data sukses di resample')
