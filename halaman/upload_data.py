@@ -26,7 +26,7 @@ def app():
          st.write(f"Frequensi time series data anda frequensi ({df_infreq})")
          st.markdown("https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects")
          type_df = st.selectbox('(optional) resample data menjadi data:',["Pilih Salah Satu jika anda ingin resample data",'Harian','Mingguan','Bulanan',"Tahunan"],index=0)
-         mis_val_dm = int(datamaster.isna().sum())
+         mis_val_dm = 0
          df_resample = resample(datamaster,type_df)
          mis_val_res = 0
          
