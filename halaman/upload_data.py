@@ -65,7 +65,7 @@ def app():
 
     
 
-    data = st.file_uploader("upload data berformat csv (untuk mengubah data master)", type=['csv'])
+    data = st.file_uploader("upload data berformat excel (untuk mengubah data master)", type=['xlsx'])
     if data is not None:
             dataframe = pd.read_csv(data)
             # dataframe.columns = dataframe.columns.str.replace("^\s+|\s+$","",regex=True)
