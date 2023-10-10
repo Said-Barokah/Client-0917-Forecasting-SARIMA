@@ -84,7 +84,7 @@ def app():
             dataframe = dataframe.set_index(time_series)
             # cek missing value
 
-            st.write(f'Jumlah missing value {int(dataframe.isna().sum())}')
+            # st.write(f'Jumlah missing value {int(dataframe.isna().sum())}')
             st.line_chart(dataframe)
 
             column_data = pd.DataFrame(data={'time series': [time_series], 'series': [series]})
