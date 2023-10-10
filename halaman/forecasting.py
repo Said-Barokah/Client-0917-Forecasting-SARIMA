@@ -12,6 +12,7 @@ def app():
     st.header('Forecasting Data')
     column = pd.read_csv('data/meta/column_data.csv')
     time_series = column['time series'][0]
+    series = column['series'][0]
     df_auto_model = pd.read_csv('data/meta/auto_model.csv')
     df_man_model = pd.read_csv('data/meta/manual_model.csv')
 
@@ -51,7 +52,7 @@ def app():
         with tab1:
             st.write(fig)
         with tab2:
-            df_test.rename(columns={'Total': 'Actual'}, inplace=True)
+            df_test.rename(columns={series: 'Actual'}, inplace=True)
             df_res = df_test.join(pred)
             st.write(df_res)
             res_mape = mape(df_res['Actual'],df_res['predicted_mean'])
@@ -81,7 +82,7 @@ def app():
     with tab1:
         st.write(fig)
     with tab2:
-        df_test.rename(columns={'Total': 'Actual'}, inplace=True)
+        df_test.rename(columns={serires: 'Actual'}, inplace=True)
         df_res = df_test.join(pred)
         st.write(pred)
         res_mape = mape(df_res['Actual'],df_res['predicted_mean'])
