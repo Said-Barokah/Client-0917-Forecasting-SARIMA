@@ -82,7 +82,7 @@ def app():
     with tab1:
         st.write(fig)
     with tab2:
-        df_test.rename(columns={serires: 'Actual'}, inplace=True)
+        df_test.rename(columns={series: 'Actual'}, inplace=True)
         df_res = df_test.join(pred)
         st.write(pred)
         res_mape = mape(df_res['Actual'],df_res['predicted_mean'])
