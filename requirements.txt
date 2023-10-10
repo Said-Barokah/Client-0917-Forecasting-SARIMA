@@ -5,4 +5,3 @@ scikit_learn==1.1.3
 streamlit==1.27.2
 pmdarima==2.0.3
 statsmodels==0.14.0
-openpyx==2.6.3
