@@ -26,20 +26,20 @@ def app():
          st.write(f"Frequensi time series data anda frequensi ({df_infreq})")
          st.markdown("https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects")
          type_df = st.selectbox('(optional) resample data menjadi data:',["Pilih Salah Satu jika anda ingin resample data",'Harian','Mingguan','Bulanan',"Tahunan"],index=0)
-         mis_val_dm = 0
+         mis_val_dm = int(datamaster.isna().sum())
          df_resample = resample(datamaster,type_df)
-         mis_val_res = 0
+         mis_val_res = int(df_resample.isna().sum())
          
          if(mis_val_res > mis_val_dm):
               st.error('Resample tolak, coba frequency yang lebih tinggi dari data asli')
               df_resample = datamaster
               st.write(df_resample)
-              # st.write(f'Jumlah missing value {int(df_resample.isna().sum())}')
+              st.write(f'Jumlah missing value {int(df_resample.isna().sum())}')
               st.line_chart(df_resample)
               df_resample.to_csv('data/data_resample.csv')
          else:
               st.write(df_resample)
-              # st.write(f'Jumlah missing value {int(df_resample.isna().sum())}')
+              st.write(f'Jumlah missing value {int(df_resample.isna().sum())}')
               st.line_chart(df_resample)
               if(type_df != 'Pilih Salah Satu jika anda ingin resample data'):
                 st.success('Data sukses di resample')
@@ -86,7 +86,7 @@ def app():
 
             # st.write(f'Jumlah missing value {int(dataframe.isna().sum())}')
             st.line_chart(dataframe)
-            dataframe.to_csv('data/contoh_master.csv',index=False)
+
 
             column_data = pd.DataFrame(data={'time series': [time_series], 'series': [series]})
             if st.button('simpan data menjadi data master') :
