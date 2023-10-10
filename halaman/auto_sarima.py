@@ -29,7 +29,6 @@ def app():
         # st.write(result.rsquared)
         st.write(result)
         res_dict = sarima_model.to_dict()
-        st.write(res_dict)
         df_auto_model = pd.DataFrame(data={'order':[(res_dict['order'][0],res_dict['order'][1],res_dict['order'][2])],
                                            'seasonal_order':[(res_dict['seasonal_order'][0],res_dict['seasonal_order'][1]
                                                               ,res_dict['seasonal_order'][2],res_dict['seasonal_order'][3])],
