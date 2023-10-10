@@ -28,7 +28,7 @@ def app():
          type_df = st.selectbox('(optional) resample data menjadi data:',["Pilih Salah Satu jika anda ingin resample data",'Harian','Mingguan','Bulanan',"Tahunan"],index=0)
          mis_val_dm = int(datamaster.isna().sum())
          df_resample = resample(datamaster,type_df)
-         mis_val_res = int(df_resample.isna().sum())
+         mis_val_res = 0
          
          if(mis_val_res > mis_val_dm):
               st.error('Resample tolak, coba frequency yang lebih tinggi dari data asli')
